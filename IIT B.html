@@ -1,78 +1,137 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Simple Nav with Info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+    body { margin: 0; font-family: Arial, sans-serif; }
+    nav {
+      background: #3b82f6;
+      color: #fff;
+      padding: 1rem;
+      position: sticky; top: 0;
+      display: flex; gap: 1rem;
+    }
+    nav a { color: #fff; text-decoration: none; margin-right: 1rem; }
+    nav a:hover, nav a:focus {
+      text-decoration: underline;
+      outline: 1px solid #fff;
+      border-radius: 3px;
+    }
+    .section {
+      min-height: 100vh;
+      padding: 1.5rem;
+      box-sizing: border-box;
+    }
+    #home { background: #dbeafe; }
+    #about { background: #d1fae5; }
+    #services { background: #fef9c3; }
+    #contact { background: #fce7f3; }
+    h1 {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
     p {
-        font-style: italic;
-        font-variant: small-caps;
-        font-weight: bold;
-        font-size: 16px;
-        line-height: 1.5;
-        font-family: Arial, sans-serif;
-        background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }    
+      font-style: italic;
+      font-variant: small-caps;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 1.5;
+      background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1.5rem;
+    }
+    form div { margin-bottom: 1rem; }
+    label { display: block; margin-bottom: 0.25rem; font-weight: normal; color: #222; }
+    input, textarea {
+      width: 100%; max-width: 400px;
+      padding: 0.5rem; border: 1px solid #ccc; border-radius: 4px;
+      font-size: 1rem; font-family: inherit;
+      margin-bottom: 0.25rem;
+    }
+    input:focus, textarea:focus { outline: 2px solid #3b82f6; }
+    .error { color: #b91c1c; font-size: 0.95em; }
+    .success { color: #15803d; font-size: 0.95em; }
+    button {
+      background: #3b82f6; color: #fff;
+      border: none; padding: 0.5rem 1.5rem;
+      border-radius: 4px; font-size: 1rem;
+      cursor: pointer;
+    }
+    button:focus, button:hover { background: #2563eb; }
     @media (max-width: 640px) {
-        nav {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 1rem;
-        }
-
-        nav a {
-        margin-bottom: 0.5rem;
-        }
-
-        h1 {
-        font-size: 1.5rem;
-        }
-
-        p {
-        font-size: 14px;
-        }
-
-        div[id] {
-        padding: 1rem;
-        }
+      nav { flex-direction: column; align-items: flex-start; padding: 1rem 0.5rem; }
+      nav a { margin-bottom: 0.5rem; font-size: 1rem; }
+      h1 { font-size: 1.5rem; }
+      p { font-size: 14px; }
+      .section { padding: 1rem; }
     }
   </style>
-  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="scroll-smooth">
-
-  <!-- Simple Navigation Bar -->
-  <nav class="bg-blue-500 text-white p-3 sticky top-0">
-    <a href="#home" class="mr-4 hover:underline">Home</a>
-    <a href="#about" class="mr-4 hover:underline">About</a>
-    <a href="#services" class="mr-4 hover:underline">Services</a>
-    <a href="#contact" class="hover:underline">Contact</a>
+<body>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
   </nav>
-
-  <!-- Sections with Information -->
-  <div id="home" class="h-screen bg-blue-100 p-6">
-    <h1 class="text-3xl font-bold mb-4">Home</h1>
+  <div id="home" class="section">
+    <h1>Home</h1>
     <p>Welcome to our website! We’re glad you’re here. Scroll down to learn more about what we do.</p>
   </div>
-
-  <div id="about" class="h-screen bg-green-100 p-6">
-    <h1 class="text-3xl font-bold mb-4">About</h1>
-    <p>I am student of DF Vaishnav College. Aspiring to become Back-end engineer.</p>
+  <div id="about" class="section">
+    <h1>About</h1>
+    <p>I am a student of DG Vaishnav College. Aspiring to become Back-end engineer by gaining skills through projects and solving the problems. However, I really wanted to go abroad after UG. I am targeting South Korea or Malaysia at top university for MS In computer Science.</p>
   </div>
-
-  <div id="Achievements" class="h-screen bg-yellow-100 p-6">
-    <h1 class="text-3xl font-bold mb-4">Services</h1>
-    <p>I got 3rd rank in Higher Secondary school overall of 445 students. I got decent scholarship in my college as a top performance student</p>
+  <div id="services" class="section">
+    <h1>Services</h1>
+    <p>I got 3rd rank in Higher Secondary school overall of 445 students. <br>I got decent scholarship in my college as a top performance student. <br> I have been awarded best and top student of Muslim students in the whole Tamil Nadu for scoring above 95% in the higher secondary school.</p>
   </div>
-
-  <div id="contact" class="h-screen bg-pink-100 p-6">
-    <h1 class="text-3xl font-bold mb-4">Contact</h1>
-    <p>Do u Have any Questions about design, reach out my contact arshadasik.7@gmail.com.</p>
+  <div id="contact" class="section">
+    <h1>Contact</h1>
+    <form id="contactForm" autocomplete="off" novalidate>
+      <div>
+        <label for="name">Name:</label>
+        <input id="name" name="name" required>
+        <div id="error-name" class="error"></div>
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input id="email" name="email" type="email" required>
+        <div id="error-email" class="error"></div>
+      </div>
+      <div>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+        <div id="error-message" class="error"></div>
+      </div>
+      <button type="submit">Send</button>
+      <div id="form-msg" class="success"></div>
+    </form>
+    <p>Do u Have any Questions about design? Reach out to my contact <a href="mailto:arshadasik.7@gmail.com">arshadasik.7@gmail.com</a>.</p>
   </div>
+<script>
+document.getElementById('contactForm').onsubmit = function(e) {
+  e.preventDefault();
+  document.getElementById('form-msg').textContent = '';
+  let errors = 0;
+  let name = document.getElementById('name').value.trim();
+  let email = document.getElementById('email').value.trim();
+  let message = document.getElementById('message').value.trim();
 
+  document.getElementById('error-name').textContent = name ? '' : 'Name required';
+  document.getElementById('error-email').textContent = email.includes('@') ? '' : 'Valid email required';
+  document.getElementById('error-message').textContent = message ? '' : 'Message required';
+
+  if(!name || !email.includes('@') || !message){ errors = 1; }
+  if(!errors) {
+    document.getElementById('form-msg').textContent = 'Message sent!';
+    document.getElementById('contactForm').reset();
+  }
+};
+</script>
 </body>
 </html>
-
